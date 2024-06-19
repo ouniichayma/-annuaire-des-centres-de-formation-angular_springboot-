@@ -1,0 +1,19 @@
+
+
+<br>
+<form action="">
+  <h2><span class="entypo-login"></span> Login </h2>
+  <button class="submit" type="button" (click)="login()" ><span class="entypo-lock"></span></button>
+  <span class="entypo-user inputUserIcon">
+   
+   </span>
+   <input type="text" class="user" id="floatingInput" placeholder="Username" name="username" [(ngModel)]="username" autocomplete="current-password" >
+  <span class="entypo-key inputPassIcon">
+  
+   </span>
+   <input type="password" class="pass" id="floatingPassword" placeholder="Password" name="password" [(ngModel)]="password" autocomplete="current-password">
+   
+   <a routerLink="/signup"   >Need account ? </a>
+</form>
+
+

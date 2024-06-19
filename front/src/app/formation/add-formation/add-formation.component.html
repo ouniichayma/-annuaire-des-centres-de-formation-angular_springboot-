@@ -1,0 +1,366 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-md-12 col-md-offset-2" >
+  <h1 style="text-align: center; color:rgb(255, 145, 0);font-family: system-ui;">👋 add training!</h1>
+    <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+      <input type="hidden"  formControlName="id" id="id">
+    
+
+      <div class="form-group">
+        <label>Code Catégorie </label>
+        <select class="form-control" formControlName="num_cat" id="num_cat"
+        (change)="onSelectCateg($event)">
+        <option value="0">-Select category-</option>
+        <option *ngFor="let categorie of CategorieList" value="{{categorie.code}}">{{categorie.libelle}}</option>
+        </select>
+      </div>
+
+
+
+
+
+      <div class="form-group">
+        <label>Code SCatégory </label>
+        <select class="form-control" formControlName="num_scat" id="num_scat "
+        (change)="onSelectScateg($event)">
+        <option value="0">-Select subcategory-</option>
+        <option *ngFor="let item of ScategorieList" value="{{item.code}}">{{item.libelle}}</option>
+        </select>
+
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+
+       
+        
+
+            <label>Code </label>
+            <input type="text" class="form-control" formControlName="code" id="code" readonly>
+            
+          </div>
+    
+    
+          
+          <div class="form-group">
+            <label>Libelle</label>
+            <input type="text" class="form-control" formControlName="libelle" id="libelle">
+
+            <div *ngIf="crudApi.dataForm.get('libelle')?.invalid && (crudApi.dataForm.get('libelle')?.dirty || crudApi.dataForm.get('libelle')?.touched)">
+              <div *ngIf="crudApi.dataForm.get('libelle')?.errors?.['required']">
+               <b style="color: red;"> <i>Code is required.</i></b>
+              </div>
+              <div *ngIf="crudApi.dataForm.get('libelle')?.errors?.['pattern']">
+                <b style="color: red;"> Code must be a string.</b>
+              </div>
+            </div>
+    
+    
+            
+          </div>
+
+
+
+
+
+
+
+
+           
+          <div class="form-group">
+            <label>description</label>
+            
+            <textarea id="description" class="form-control" rows="4" 
+           formControlName="description" 
+            name="description" required></textarea>
+            <div *ngIf="crudApi.dataForm.get('description')?.invalid && (crudApi.dataForm.get('description')?.dirty || crudApi.dataForm.get('description')?.touched)">
+              <div *ngIf="crudApi.dataForm.get('description')?.errors?.['required']">
+               <b style="color: red;"> <i>description is required.</i></b>
+              </div>
+              
+            </div>
+    
+    
+            
+          </div>
+    
+
+
+
+
+
+          <div class="form-group">
+            <label>centre de formation</label>
+            <input type="text" class="form-control" formControlName="username" id="username">
+
+            <div *ngIf="crudApi.dataForm.get('username')?.invalid && (crudApi.dataForm.get('username')?.dirty || crudApi.dataForm.get('username')?.touched)">
+              <div *ngIf="crudApi.dataForm.get('username')?.errors?.['required']">
+               <b style="color: red;"> <i>Code is required.</i></b>
+              </div>
+              <div *ngIf="crudApi.dataForm.get('username')?.errors?.['pattern']">
+                <b style="color: red;"> Code must be a string.</b>
+              </div>
+            </div>
+    
+    
+            
+          </div>
+
+
+    
+    
+          <div class="form-group">
+            <label>Prix Achat  </label>
+            <input type="text" class="form-control" formControlName="pa" id="pa">
+
+            <div *ngIf="crudApi.dataForm.get('pa')?.invalid && (crudApi.dataForm.get('pa')?.dirty || crudApi.dataForm.get('pa')?.touched)">
+              <div *ngIf="crudApi.dataForm.get('pa')?.errors?.['required']">
+               <b style="color: red;"> <i>Code is required.</i></b>
+              </div>
+              <div *ngIf="crudApi.dataForm.get('pa')?.errors?.['pattern']">
+                <b style="color: red;"> Code must be a number.</b>
+              </div>
+            </div>
+
+          </div>
+    
+    
+    
+          <div class="form-group">
+            <label>place </label>
+            <input type="text" class="form-control" formControlName="place" id="place">
+
+
+            <div *ngIf="crudApi.dataForm.get('place')?.invalid && (crudApi.dataForm.get('place')?.dirty || crudApi.dataForm.get('place')?.touched)">
+              <div *ngIf="crudApi.dataForm.get('place')?.errors?.['required']">
+               <b style="color: red;"> <i>Code is required.</i></b>
+              </div>
+              <div *ngIf="crudApi.dataForm.get('place')?.errors?.['pattern']">
+                <b style="color: red;"> Code must be a number.</b>
+              </div>
+            </div>
+
+          </div>
+    
+
+
+
+
+
+
+
+      </div>
+
+
+    
+    
+    
+    
+    
+    
+    
+
+
+
+      <div class="form-group">
+        <label>localisation</label>
+        <input type="text" class="form-control" formControlName="local" id="local">
+        
+      </div>
+
+
+
+      <div class="form-group">
+        <label>File Upload  </label>
+            <input type="file" accept="image/*" (change)="onSelectFile($event)">
+            <img [src]="imgURL" height="200" *ngIf="imgURL">
+    </div>
+
+
+      <div class="form-group">
+    
+        <button type="submit" class="btn btn-dark"[disabled]="this.crudApi.dataForm.invalid" ><i class="fa fa-database"></i> Submit</button>
+        
+    
+
+</div>
+    </form>
+</div>

@@ -1,0 +1,284 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- this is the markup, keep your hands off! -->
+
+<form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+  <label for="email">add new category</label>
+  <input type="hidden"  formControlName="id" id="id">
+  
+  <input type="text" placeholder="code categorie" formControlName="code" id="code">
+
+
+
+
+<div *ngIf="crudApi.dataForm.get('code')?.invalid && (crudApi.dataForm.get('code')?.dirty || crudApi.dataForm.get('code')?.touched)">
+  <div *ngIf="crudApi.dataForm.get('code')?.errors?.['required']">
+   <b style="color: red;"> <i>Code is required.</i></b>
+  </div>
+  <div *ngIf="crudApi.dataForm.get('code')?.errors?.['pattern']">
+    <b style="color: red;"> Code must be a number.</b>
+  </div>
+</div>
+
+
+
+<div class="form-group">
+  <label>File Upload  </label>
+      <input type="file" accept="image/*" (change)="onSelectFile($event)">
+      <img [src]="imgURL" height="200" *ngIf="imgURL">
+</div>
+
+
+
+  <input placeholder="nom du categorie"  type="text" formControlName="libelle" id="libelle">
+  <input type="submit" [disabled]="this.crudApi.dataForm.invalid" value="add" name="subscribe">
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="iqoniq_courses_search">
+  <div class="container">
+ 
+
+
+            
+   
+    <div class="row" >
+      <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+      <div class="col-md-3 col-sm-6">
+       
+        <div class="iq-input">
+          <input class="first_input"  type="hidden"  formControlName="id" id="id">
+        </div>
+      
+      </div>
+
+
+
+
+
+      <div class="col-md-3 col-sm-6">
+     
+        <div class="iq-input">
+          <input class="first_input"  type="text" placeholder="code categorie" formControlName="code" id="code">
+        </div>
+
+
+
+        <div *ngIf="crudApi.dataForm.get('code')?.invalid && (crudApi.dataForm.get('code')?.dirty || crudApi.dataForm.get('code')?.touched)">
+          <div *ngIf="crudApi.dataForm.get('code')?.errors?.['required']">
+           <b style="color: red;"> <i>Code is required.</i></b>
+          </div>
+          <div *ngIf="crudApi.dataForm.get('code')?.errors?.['pattern']">
+            <b style="color: red;"> Code must be a number.</b>
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+      
+      <div class="col-md-3 col-sm-6">
+     
+        <div class="iq-input">
+          <input class="first_input" placeholder="nom du categorie"  type="text" formControlName="libelle" id="libelle">
+        </div>
+       
+      </div>
+
+
+
+     
+      <div class="col-md-3 col-sm-6">
+        <div class="iq-input">
+                    
+                        <button type="submit"  class="iq_link_1" [disabled]="this.crudApi.dataForm.invalid" ><i class="fa fa-database" ></i> Submit</button>
+        </div>
+      
+      </div>  
+
+      </form>
+   
+    </div> 
+
+
+  </div>
+  
+</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--iqoniq FROM END<div class="col-md-12 col-md-offset-2">
+    <h1>Catégorie</h1>    
+    <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+      <input type="hidden"  formControlName="id" id="id">
+      
+      <div class="form-group">
+        <label>Code </label>
+        <input type="text" class="form-control" formControlName="code" id="code">
+        
+      </div>
+    
+      <div class="form-group">
+        <label>Libelle</label>
+        <input type="text" class="form-control" formControlName="libelle" id="libelle">
+        
+      </div>
+      <div class="form-group">
+    
+        <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+        
+    
+
+</div>
+    </form>
+</div>-->
+
+
+
+

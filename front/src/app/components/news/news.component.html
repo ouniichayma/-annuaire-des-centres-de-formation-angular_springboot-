@@ -1,0 +1,191 @@
+<!--<div class="wrapperMain">
+		<section id="services" class="bounce-inInverse">
+				<div class="containerContent">
+				<div class="set_size_section1">
+					<h2 class="services_h2 center">our categories</h2>
+					<p class="services_p center">"Our website offers a wide range of training categories, including but not limited to business, technology, creative arts, health and wellness, and personal development."</p>
+					<div class="article_center2" *ngIf="listData | async as categorie">
+						<article class="section1_article"*ngFor="let item of categorie | paginate: { itemsPerPage: 3, currentPage: p }">
+							<img alt="Basket" src = "{{this.crudApi.host+'/api/Imgcategories/'+item.id}}" width="78" height="77">
+							<h3>{{item.libelle}}</h3>
+							<button (click)="loadScategories(item.id)">Load Scategories</button>
+						</article>
+						<ul>
+							<li *ngFor="let scateg of scategories">
+							  {{ scateg.libelle }}
+							</li>
+						  </ul>
+					</div>
+					<pagination-controls (pageChange)="p = $event"  ></pagination-controls>
+				</div>
+				</div>
+			</section>
+			<footer>
+		
+		</footer>
+		</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Course Search -->
+
+
+<div class="row">
+	<div class="col">
+		<div class="course_search">
+			<form action="#" [formGroup]="searchForm" (ngSubmit)="onSearch()"
+				class="course_search_form d-flex flex-md-row flex-column align-items-start justify-content-between">
+				<div><input type="text" class="course_input" formControlName="libelle"
+						placeholder="search the category or subCategory...." required="required"></div>
+
+				<button type="submit" class="course_button"><span>search </span><span class="button_arrow"><i
+							class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="post-it" *ngIf="categ$ | async as categories">
+	<p class="sticky taped" *ngFor="let item of categories">
+		<strong>we offre the Category or subcategory you search</strong><br>
+
+		{{item.libelle}}<br>
+
+	</p>
+</div>
+<div *ngIf="(categ$ | async)?.length === 0">
+	<p>No results found.</p>
+</div>
+
+
+
+
+
+<!--<div class="row courses_row" *ngIf="categ$ | async as categories">
+				<div class="col-lg-4 col-md-6" *ngFor="let item of categories">
+					<br>
+                     <br>
+					<div class="course">
+						
+						<div class="course_body">
+							<div class="course_header d-flex flex-row align-items-center justify-content-start">
+							
+								
+							</div>
+							<div class="course_title"><h3><a > {{item.libelle}}</a></h3></div>
+							
+							<div class="course_footer d-flex align-items-center justify-content-start">
+								
+								
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			  </div>
+			  <div *ngIf="(categ$ | async)?.length === 0">
+				<p>No results found.</p>
+			  </div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="speakers-section" style="background-image: url(https://i.ibb.co/92HJxz2/team-bg.jpg);">
+	<div class="parallax-scene parallax-scene-2 anim-icons">
+		<span data-depth="0.40" class="parallax-layer icon icon-circle-5"></span>
+		<span data-depth="0.99" class="parallax-layer icon icon-circle-5"></span>
+	</div>
+
+	<div class="container">
+		<div class="sec-title light text-center">
+			<span class="title">our categories</span>
+			<h2>"Our website offers a wide range of training categories, including but not limited to business,
+				technology, creative arts, health and wellness, and personal development."</h2>
+		</div>
+
+		<div class="row" *ngIf="listData | async as categorie">
+
+
+
+			<div class="speaker-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="800ms"
+				*ngFor="let item of categorie | paginate: { itemsPerPage: 3, currentPage: p }">
+				<div class="inner-box">
+					<div class="image-box">
+						<figure class="image"><img src="{{this.crudApi.host+'/api/Imgcategories/'+item.id}}" alt="">
+							<div class="social-links">
+								<ul>
+
+
+									<div (click)="loadScategories(item.id)" class="button home_button"><a
+											routerLink="about">Load Scategories<div class="button_arrow"><i
+													class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>
+								</ul>
+
+
+							</div>
+						</figure>
+
+					</div>
+					<div class="caption-box">
+						<h4 class="name"><a href="#">{{item.libelle}} </a></h4>
+
+					</div>
+
+
+
+					<!--<ul>
+								<li *ngFor="let scateg of scategories">
+								  {{ scateg.libelle }}
+								</li>
+							  </ul>-->
+
+
+
+
+
+				</div>
+			</div>
+		</div>
+		<div class="post-it">
+			<p class="sticky taped" *ngFor="let scateg of scategories">
+				<strong>The subcategories of this category</strong><br>
+
+				{{ scateg.libelle }}<br>
+
+			</p>
+		</div>
+		<pagination-controls (pageChange)="p = $event"></pagination-controls>
+	</div>
+</section>

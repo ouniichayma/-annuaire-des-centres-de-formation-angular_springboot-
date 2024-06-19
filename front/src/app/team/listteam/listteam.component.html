@@ -1,0 +1,158 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h1 style="text-align: center; color:rgb(255, 145, 0);font-family: system-ui;">👋 Team list!</h1>
+  <button style=" 
+ 
+  width: 10%;
+  padding: 10px;
+  text-decoration: none;
+  background-color: rgb(255, 149, 61);
+  color: black;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;" routerLink="team">add Personal</button>
+  <br>
+  
+  <ul class="cards"  *ngIf="listData | async as formations">
+    <li class="card"*ngFor="let item of formations | paginate: { itemsPerPage: 3, currentPage: p }">
+      <div >
+        <a href="#"><img class="card-img-top img-responsive"
+          src = "{{this.crudApi.host+'/api/ImgTeams/'+item.id}}" 
+          style = "height :200px;width:fil-content"
+         alt=""></a>
+        <h2>{{item.nom}}  {{item.prenom}}</h2>
+        <div class="card__buttons">
+        <button (click) = "selectData(item)">✍modify</button>
+          <button (click) = "removeData(item.id)"> ⛔  delete   </button>
+        </div>
+      </div>
+      <h3 class="card__tagline">You can make modifications or deletions</h3>
+      <ul class="card__icons">
+       
+        <li><i class="fa fa-bolt">{{item.role}}</i></li>
+        <li><i class="fa fa-bomb">{{item.local}}</i></li>
+        <br>
+       
+        
+      </ul>
+      <p>{{item.username}}</p>
+    </li>
+   
+    <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+    
+  </ul>
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+    
+
+
+

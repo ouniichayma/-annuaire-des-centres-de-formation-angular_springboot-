@@ -1,0 +1,82 @@
+
+
+	<div class="row">
+        <div class="col">
+            <div class="course_search">
+                <form   [formGroup]="searchForm" (ngSubmit)="onSearch()" action="#" class="course_search_form d-flex flex-md-row flex-column align-items-start justify-content-between">
+                    <div><input type="text" class="course_input" formControlName="username" formControlName="localisation" placeholder="ville" required="required"></div>
+                    <div><input type="text" class="course_input" formControlName="username"  placeholder="training center" required="required"></div>
+                
+                    <button  type="submit" class="course_button"><span>search course</span><span class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row" *ngIf="user$ | async as users">
+      <div class="person"*ngFor="let item of users| paginate: { itemsPerPage: 3, currentPage: p }">
+        <div class="container">
+          <div class="container-inner">
+            <img
+              class="circle"
+              src="{{ this.authService.host+'/auth/Imgarticles/'+item.id }}"
+            />
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="name">{{item.username}}</div>
+        <div class="title">{{item.localisation}}</div>
+        <div class="button home_button" type="submit" (click)="centredetails(item.id)"><a routerLink="about">learn more<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>
+      </div>
+    
+      <pagination-controls class="paginate" (pageChange)="p = $event"></pagination-controls>
+  </div>
+ 
+  <div *ngIf="(user$ | async)?.length === 0">
+    <p>No results found.</p>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="our-team">
+    <h1>Our Team</h1>
+    <div class="team-members"*ngIf="listData | async as users">
+      <div class="team-member"*ngFor="let item of users| paginate: { itemsPerPage: 3, currentPage: p }">
+        <div class="img-member">
+          <img  src="{{ this.authService.host+'/auth/Imgarticles/'+item.id }}" alt="">
+        </div>
+        <h3>{{item.username}}</h3>
+        <p class="occupation">{{item.localisation}}</p>
+        <div class="button home_button" type="submit" (click)="centredetails(item.id)"><a routerLink="about">learn more<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>
+      </div>
+    
+      
+    </div>
+    <pagination-controls  (pageChange)="p = $event"></pagination-controls>
+  </section>

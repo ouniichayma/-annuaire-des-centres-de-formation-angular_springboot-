@@ -1,0 +1,936 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="dashboard" style="background-color:rgb(255, 106, 20);">
+    <aside class="search-wrap">
+       <div class="search" hidden>
+
+           <label for="search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z" />
+                </svg>
+                <input type="text" id="search" [(ngModel)]="searchType">
+                   
+                
+
+
+
+
+            </label>
+
+          
+        </div>
+
+        <div class="user-actions">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M13.094 2.085l-1.013-.082a1.082 1.082 0 0 0-.161 0l-1.063.087C6.948 2.652 4 6.053 4 10v3.838l-.948 2.846A1 1 0 0 0 4 18h4.5c0 1.93 1.57 3.5 3.5 3.5s3.5-1.57 3.5-3.5H20a1 1 0 0 0 .889-1.495L20 13.838V10c0-3.94-2.942-7.34-6.906-7.915zM12 19.5c-.841 0-1.5-.659-1.5-1.5h3c0 .841-.659 1.5-1.5 1.5zM5.388 16l.561-1.684A1.03 1.03 0 0 0 6 14v-4c0-2.959 2.211-5.509 5.08-5.923l.921-.074.868.068C15.794 4.497 18 7.046 18 10v4c0 .107.018.214.052.316l.56 1.684H5.388z" />
+                </svg>
+            </button>
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" (click)="logout()" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M12 21c4.411 0 8-3.589 8-8 0-3.35-2.072-6.221-5-7.411v2.223A6 6 0 0 1 18 13c0 3.309-2.691 6-6 6s-6-2.691-6-6a5.999 5.999 0 0 1 3-5.188V5.589C6.072 6.779 4 9.65 4 13c0 4.411 3.589 8 8 8z" />
+                    <path d="M11 2h2v10h-2z" />
+                </svg>
+            </button>
+        </div>
+    </aside>
+
+    <header class="menu-wrap">
+        <figure class="user">
+            <div class="user-avatar">
+                <img *ngIf="plog?.id" src="{{this.authService.host+'/auth/Imgarticles/'+plog?.id}}" alt=" {{username}}">
+
+            </div>
+            <figcaption>
+                {{plog?.username}}
+            </figcaption>
+
+        </figure>
+
+        <nav>
+            <section class="dicover">
+                <h3>Discover</h3>
+
+                <ul>
+                    <li>
+                        <a routerLink="/admin/listformation">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path
+                                    d="M6.855 14.365l-1.817 6.36a1.001 1.001 0 0 0 1.517 1.106L12 18.202l5.445 3.63a1 1 0 0 0 1.517-1.106l-1.817-6.36 4.48-3.584a1.001 1.001 0 0 0-.461-1.767l-5.497-.916-2.772-5.545c-.34-.678-1.449-.678-1.789 0L8.333 8.098l-5.497.916a1 1 0 0 0-.461 1.767l4.48 3.584zm2.309-4.379c.315-.053.587-.253.73-.539L12 5.236l2.105 4.211c.144.286.415.486.73.539l3.79.632-3.251 2.601a1.003 1.003 0 0 0-.337 1.056l1.253 4.385-3.736-2.491a1 1 0 0 0-1.109-.001l-3.736 2.491 1.253-4.385a1.002 1.002 0 0 0-.337-1.056l-3.251-2.601 3.79-.631z" />
+                            </svg>
+                            Training-list
+                        </a>
+                    </li>
+
+
+
+                    <li>
+                        <a routerLink="/admin/listcategorie">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path
+                                    d="M12.707 2.293A.996.996 0 0 0 12 2H3a1 1 0 0 0-1 1v9c0 .266.105.52.293.707l9 9a.997.997 0 0 0 1.414 0l9-9a.999.999 0 0 0 0-1.414l-9-9zM12 19.586l-8-8V4h7.586l8 8L12 19.586z" />
+                                <circle cx="7.507" cy="7.505" r="1.505" />
+                            </svg>
+                            Category-list
+                        </a>
+                    </li>
+
+                    <li>
+                        <a routerLink="/admin/listscategorie">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path
+                                    d="M5.707 19.707L12 13.414l4.461 4.461L14.337 20H20v-5.663l-2.125 2.124L13.414 12l4.461-4.461L20 9.663V4h-5.663l2.124 2.125L12 10.586 5.707 4.293 4.293 5.707 10.586 12l-6.293 6.293z" />
+                            </svg>
+                            subcategory-list
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="tools">
+                <h3>Tools</h3>
+
+                <ul>
+
+
+                    <li>
+                        <a routerLink="/admin/formation">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M13 7L11 7 11 11 7 11 7 13 11 13 11 17 13 17 13 13 17 13 17 11 13 11z" />
+                                <path
+                                    d="M12,2C6.486,2,2,6.486,2,12s4.486,10,10,10c5.514,0,10-4.486,10-10S17.514,2,12,2z M12,20c-4.411,0-8-3.589-8-8 s3.589-8,8-8s8,3.589,8,8S16.411,20,12,20z" />
+                            </svg>
+                            Create training
+                        </a>
+                    </li>
+
+                    <li>
+                        <a routerLink="/admin/categorie">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M13 7L11 7 11 11 7 11 7 13 11 13 11 17 13 17 13 13 17 13 17 11 13 11z" />
+                                <path
+                                    d="M12,2C6.486,2,2,6.486,2,12s4.486,10,10,10c5.514,0,10-4.486,10-10S17.514,2,12,2z M12,20c-4.411,0-8-3.589-8-8 s3.589-8,8-8s8,3.589,8,8S16.411,20,12,20z" />
+                            </svg>
+                            Create category
+                        </a>
+                    </li>
+
+                    <li>
+                        <a routerLink="/admin/scategorie">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M13 7L11 7 11 11 7 11 7 13 11 13 11 17 13 17 13 13 17 13 17 11 13 11z" />
+                                <path
+                                    d="M12,2C6.486,2,2,6.486,2,12s4.486,10,10,10c5.514,0,10-4.486,10-10S17.514,2,12,2z M12,20c-4.411,0-8-3.589-8-8 s3.589-8,8-8s8,3.589,8,8S16.411,20,12,20z" />
+                            </svg>
+                            Create subCategory
+                        </a>
+                    </li>
+
+
+                </ul>
+            </section>
+
+
+        </nav>
+    </header>
+
+    <main class="content-wrap">
+        <header class="content-head">
+            <h1>we hub </h1>
+
+          
+
+
+
+
+
+
+
+
+
+
+            <div class="row">
+                <div class="col">
+                    <div class="course_search">
+                        <form   [formGroup]="searchForm" (ngSubmit)="onSearch()" action="#" class="course_search_form d-flex flex-md-row flex-column align-items-start justify-content-between">
+                            <div><input type="text" class="course_input" name="localisation" formControlName="localisation" placeholder="ville" required="required"></div>
+                            <div><input type="text" class="course_input" formControlName="username"  placeholder="training name" required="required"></div>
+                        
+                            <button  type="submit" name="subbmitsearch" class="course_button"><span>search course</span><span class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            
+
+
+
+
+
+        </header>
+
+        <div class="content">
+            <section class="info-boxes">
+                <div class="info-box">
+                    <div class="box-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M21 20V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1zm-2-1H5V5h14v14z" />
+                            <path
+                                d="M10.381 12.309l3.172 1.586a1 1 0 0 0 1.305-.38l3-5-1.715-1.029-2.523 4.206-3.172-1.586a1.002 1.002 0 0 0-1.305.38l-3 5 1.715 1.029 2.523-4.206z" />
+                        </svg>
+                    </div>
+
+                    <div class="box-content">
+                        <span class="big">{{this.somme.length}}</span>
+                        total users
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="box-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M20 10H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V11a1 1 0 0 0-1-1zm-1 10H5v-8h14v8zM5 6h14v2H5zM7 2h10v2H7z" />
+                        </svg>
+                    </div>
+
+                    <div class="box-content">
+                        <span class="big">{{ inactiveUserCount }}</span>
+
+                        inactive-users
+                        <br>
+
+                        <button style="background-color: rgb(255, 139, 31); border:black;color: rgb(248, 242, 242);"
+                            class="btn btn-outline-success my-2 my-sm-0" type="button"
+                            (click)="searchinactive()">charcher inactive</button>
+                    </div>
+                </div>
+
+                <div class="info-box active">
+                    <div class="box-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M3,21c0,0.553,0.448,1,1,1h16c0.553,0,1-0.447,1-1v-1c0-3.714-2.261-6.907-5.478-8.281C16.729,10.709,17.5,9.193,17.5,7.5 C17.5,4.468,15.032,2,12,2C8.967,2,6.5,4.468,6.5,7.5c0,1.693,0.771,3.209,1.978,4.219C5.261,13.093,3,16.287,3,20V21z M8.5,7.5 C8.5,5.57,10.07,4,12,4s3.5,1.57,3.5,3.5S13.93,11,12,11S8.5,9.43,8.5,7.5z M12,13c3.859,0,7,3.141,7,7H5C5,16.141,8.14,13,12,13z" />
+                        </svg>
+                    </div>
+
+                    <div class="box-content">
+                        <span class="big">{{ activeUserCount }}</span>
+                        active-users
+                        <br>
+
+                        <button style="background-color: rgb(255, 139, 31); border:black;color: rgb(248, 242, 242);"
+                            class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="searchactive()">charcher
+                            active</button>
+                    </div>
+                </div>
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+<!--pouur chercher users by localisation et username-->
+
+
+
+            <section class="person-boxes"*ngIf="user$ | async as users">
+                <div class="person-box" *ngFor="let item of users| paginate: { itemsPerPage: 3, currentPage: p }">
+                    <div class="box-avatar">
+                        <img src="{{this.authService.host+'/auth/Imgarticles/'+item.id}}"
+                            alt="Frederic Levy, Chief Executive Officer">
+                    </div>
+
+                    <div class="box-bio">
+                        <h2 class="bio-name">{{item.username}}</h2>
+                        <p class="bio-position">{{item.role}}</p>
+                    </div>
+
+                    <div class="box-actions">
+                        <input class="confirm-switch" id="checkbox" type="checkbox" role=" switch"
+                            id="flexSwitchCheckChecked" [checked]="item.active">
+                        <label for="checkbox"></label>
+
+
+
+
+
+
+
+
+
+                        <button type="submit" (click)="updateuser(item.id)">✍</button>
+                        <button type="submit" (click)="removeData(item.id)">⛔</button>
+
+
+
+                    </div>
+
+
+                    <br>
+                   
+
+                </div>
+
+
+                <pagination-controls *ngIf="(user$ | async)?.length >= 2" (pageChange)="p = $event"></pagination-controls>
+               
+
+
+            </section>
+            <div *ngIf="(user$ | async)?.length === 0">
+                <p>No results found.</p>
+              </div>
+        
+<!--pouur chercher users active et innactivee-->
+           <section class="person-boxes" *ngIf="users && users.length > 0">
+                <div class="person-box" *ngFor="let user of users">
+                    <div class="box-avatar">
+                        <img src="{{ this.authService.host+'/auth/Imgarticles/'+user.id }}"
+                            alt="Frederic Levy, Chief Executive Officer">
+                    </div>
+                    <div class="box-bio">
+                        <h2 class="bio-name">{{ user.username }}</h2>
+                        <p class="bio-position">{{ user.localisation }}</p>
+                        <p class="bio-position">{{ user.role }}</p>
+                    </div>
+                    <div class="box-actions">
+                        <input class="confirm-switch" type="checkbox" role="switch" [checked]="user.active">
+                        <label for="checkbox"></label>
+                        <button type="submit" (click)="updateuser(user.id)">✍</button>
+                        <button type="submit" (click)="removeData(user.id)">⛔</button>
+                    </div>
+                </div>
+
+                <div class="person-box" *ngIf="user">
+                    <div class="box-avatar">
+                        <img src="{{ this.authService.host+'/auth/Imgarticles/'+user.id }}"
+                            alt="Frederic Levy, Chief Executive Officer">
+                    </div>
+                    <div class="box-bio">
+                        <h2 class="bio-name">{{ user.username }}</h2>
+                        <p class="bio-position">{{ user.localisation }}</p>
+                        <p class="bio-position">{{ user.role }}</p>
+                    </div>
+                    <div class="box-actions">
+                        <input class="confirm-switch" type="checkbox" role="switch" [checked]="user.active">
+                        <label for="checkbox"></label>
+                        <button type="submit" (click)="updateuser(user.id)">✍</button>
+                        <button type="submit" (click)="removeData(user.id)">⛔</button>
+                    </div>
+                </div>
+
+
+            </section>
+
+            <div *ngIf="user && (!users || users.length === 0)">
+                <p>No results found.</p>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--pouur get all users-->
+
+
+            <h1>all users </h1>
+
+            <section class="person-boxes" *ngIf="listData | async as users">
+                <div class="person-box" *ngFor="let item of users | paginate: { itemsPerPage: 3, currentPage: p }">
+                    <div class="box-avatar">
+                        <img src="{{this.authService.host+'/auth/Imgarticles/'+item.id}}"
+                            alt="Frederic Levy, Chief Executive Officer">
+                    </div>
+
+                    <div class="box-bio">
+                        <h2 class="bio-name">{{item.username}}</h2>
+                        <p class="bio-position">{{item.role}}</p>
+                    </div>
+
+                    <div class="box-actions">
+                        <input class="confirm-switch" id="checkbox" type="checkbox" role=" switch"
+                            id="flexSwitchCheckChecked" [checked]="item.active">
+                        <label for="checkbox"></label>
+
+
+
+
+
+
+
+
+
+                        <button type="submit" (click)="updateuser(item.id)">✍</button>
+                        <button type="submit" (click)="removeData(item.id)">⛔</button>
+
+
+
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+
+
+            </section>
+            <br>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </main>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="color" >
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+    
+        <form class="form-inline">
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <i class="fa fa-bars"></i>
+            </button>
+        </form>
+    
+        <form class="form-inline my-2 my-lg-0">
+            <div class="input-group">
+              <input class="form-control mr-sm-2" type="search" name="searchType" placeholder="rechercher..." aria-label="Search" [(ngModel)]="searchType">
+              <div class="input-group-append">
+              
+                <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="searchByUsername()">chercher l'utilisatuer</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="searchByLocalisation()">charcher la localisation</button>
+                  
+            </div>
+            </div>
+          </form>
+          
+         
+
+    
+    
+       <ul class="navbar-nav ml-auto">
+    
+       
+    
+    
+  
+    
+  
+        <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{username}}</span>
+                
+                <div class="d-flex align-items-center">
+                    <img 
+                    *ngIf="user?.id"
+                    src="{{this.authService.host+'/auth/Imgarticles/'+user?.id}}"
+                        alt=""
+                        style="width: 45px; height: 45px"
+                        class="rounded-circle"
+                        />
+                   
+                  </div>
+
+
+                  
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="profil">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Profile
+                </a>
+               
+                <a class="dropdown-item" href="#">
+                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" (click)="logout()" data-toggle="modal" data-target="#logoutModal">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Logout
+                </a>
+            </div>
+        </li>
+    
+    </ul>
+    
+    </nav>
+    
+
+
+
+ <section class="iq_number_count_bg">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-3">
+                <div class="iq_counter">
+                    <i class="icon-lecture">
+                        <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span><span class="path20"></span><span class="path21"></span><span class="path22"></span><span class="path23"></span><span class="path24"></span><span class="path25"></span><span class="path26"></span><span class="path27"></span><span class="path28"></span><span class="path29"></span><span class="path30"></span><span class="path31"></span><span class="path32"></span><span class="path33"></span><span class="path34"></span><span class="path35"></span><span class="path36"></span><span class="path37"></span><span class="path38"></span>
+                    </i>
+                    <span class="counter">{{this.somme.length}}</span>
+                    <h6>Total users </h6>
+                </div>
+            </div>
+           
+          
+            <div class="col-md-3 col-sm-3">
+                <div class="iq_counter" >
+                    <i class="icon-books">
+                        <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span>
+                    </i>
+                    <span class="counter">{{ inactiveUserCount }}</span>
+                    <h6>inactive users</h6>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="searchinactive()">charcher inactive</button>
+                </div>
+            </div>
+           
+            <div class="col-md-3 col-sm-3">
+                <div class="iq_counter">
+                    <i class="icon-diploma-1">
+                        <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span><span class="path20"></span><span class="path21"></span><span class="path22"></span><span class="path23"></span><span class="path24"></span><span class="path25"></span><span class="path26"></span><span class="path27"></span><span class="path28"></span><span class="path29"></span><span class="path30"></span><span class="path31"></span><span class="path32"></span><span class="path33"></span><span class="path34"></span><span class="path35"></span>
+                    </i>
+                    <span class="counter">{{ activeUserCount }}</span>
+                    <h6>active users</h6>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="searchactive()">charcher active</button>
+                </div>
+            </div>
+          
+          
+        </div>
+    </div>
+</section>
+
+
+
+
+  
+  
+    
+    <table  *ngIf="(user || users.length > 0)"  >
+       
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="user ">
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.localisation }}</td>
+        </tr>
+        <tr *ngFor="let user of users">
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.localisation }}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div *ngIf="user == null && users.length == 0">
+      <p>No results found.</p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+          <tr>
+            <th >image</th>
+            <th >Id</th>
+            <th >UserName</th>
+            <th >Email</th>
+            <th > Role </th>
+            <th > Etat </th>
+    
+            <th > Action </th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listData |async">
+          
+            
+               
+
+               <td><a href="#"><img class="card-img-top img-responsive"
+                src = "{{this.authService.host+'/auth/Imgarticles/'+item.id}}" 
+                style = "height :200px;width:fil-content"
+               alt=""></a></td>
+             
+            
+                <td >{{item.id}}</td>
+    
+                <td >{{item.username}}</td>
+                <td class="serial">{{item.email}}</td>
+                <td class="serial">{{item.role}}</td>
+
+
+
+                
+                
+
+                 <td class="serial"><div class="switch-wrap d-flex justify-content-between" >
+                       
+                            <input class="confirm-switch" type="checkbox" role="switch" id="flexSwitchCheckChecked" [checked]="item.active"/>
+                            </div></td>
+                            <td ><button class="genric-btn success circle" type="submit" (click)="updateuser(item.id)">Update</button>
+                            
+                            
+                              
+                                <button class="genric-btn warning-border radius" type="submit" (click)="removeData(item.id)">Delete</button>
+                                     </td>
+          
+          </tr>
+        </tbody>
+      </table>
+    
+    
+    
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+      <body>
+        <div class="side-menu">
+            <div class="brand-name">
+                <h1>Dashborad Admin</h1>
+            </div>
+            <ul>
+                <li><img src="dashboard (2).png" alt="">&nbsp; <span>Dashboard</span> </li>
+                <li><img src="reading-book (1).png" alt="">&nbsp;<span>Offres</span> </li>
+                <li><img src="teacher2.png" alt="">&nbsp;<span></span> </li>
+              
+                <li><img src="help-web-button.png" alt="">&nbsp; <span>Help</span></li>
+                <li><img src="settings.png" alt="">&nbsp;<span>Settings</span> </li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="header">
+                <div class="nav">
+                    <div class="search">
+                        <input type="text" placeholder="Search..">
+                        <button type="submit"><img src="search.png" alt=""></button>
+                    </div>
+                    <div class="user">
+                        <a href="#" class="btn">Add New</a>
+                        <img src="notifications.png" alt="">
+                        <div class="img-case">
+                            <img src="user.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="cards">
+                    <div class="card">
+                        <div class="box">
+                            <h3> RH founded</h3>
+                            <h1>{{this.somme.length-1}}</h1>
+                            
+                        </div>
+                        <div class="icon-case">
+                            <img src="students.png" alt="">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <h3> Candidat Founded </h3>
+                            <h1>{{this.somme1.length}}</h1>
+                            
+                        </div>
+                        <div class="icon-case">
+                            <img src="teachers.png" alt="">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <h1>0</h1>
+                            <h3>Condidat</h3>
+                        </div>
+                        <div class="icon-case">
+                            <img src="schools.png" alt="">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <h1>0</h1>
+                            <h3>Offres</h3>
+                        </div>
+                        <div class="icon-case">
+                            <img src="income.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="content-2">
+                    <div class="recent-payments">
+                        <div class="title">
+                            <h2>Candidat</h2>
+                            
+                        </div>
+                        <table>
+                            <tr>
+                                <th>Id</th>
+                                <th>Firstname</th>
+                                <th>LastName</th>
+                                <th> Email </th>
+                                <th> Age</th>
+                                <th> Action</th>
+                              
+                              
+                            </tr>
+                            <tr *ngFor="let condidat of data2">
+                                <td>{{condidat['id']}}</td>
+    
+                                <td>{{condidat['firstName']}}</td>
+                                <td>{{condidat['lastName']}}</td>
+                                <td>{{condidat['email']}}</td>
+                                <td>{{condidat['age']}}</td>
+                           
+    
+                            <td><button class="btn" type="submit" (click)="updateuser2(condidat['id'])">Update</button>
+                                
+                </td>
+                            <td>
+                                <button class="btn" type="submit" (click)="delete2(condidat['id'])">Delete</button>
+                                     </td>
+                                    </tr>
+                        </table>
+                    </div>
+                    <div class="new-students">
+                        <div class="title">
+                            <h2>RH</h2>
+                            
+                        </div>
+                        <table  >
+                            <tr>
+                                <th>Id</th>
+                                <th>UserName</th>
+                                <th>Email</th>
+                                <th> Role </th>
+                                <th> Etat </th>
+                              
+                              
+                            </tr>
+                            <tr *ngFor="let user of data">
+                                <td>{{user['id']}}</td>
+    
+                                <td>{{user['username']}}</td>
+                                <td>{{user['email']}}</td>
+                                <td>{{user['role']}}</td>
+                                <td></td>
+                               
+                                <td><div class="form-check form-switch" >
+                               
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" [checked]="user['active']"   
+            
+    
+                                    
+                                    />
+                                    </div></td>
+    
+                                <td><button class="btn" type="submit" (click)="updateuser(user['id'])">Update</button>
+                                    
+                    </td>
+                      <td>
+                        <button class="btn" type="submit" (click)="delete(user['id'])">Delete</button>
+                             </td>
+    
+    
+                              
+    
+                            </tr>
+                          
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>-->

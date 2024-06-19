@@ -1,0 +1,51 @@
+<div class=>
+    <div >
+        
+        <div >
+     
+
+            <form (ngSubmit)="update()" action="" class="mt-5 p-5">
+                <h5 >Update </h5>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="username" [(ngModel)]="user.username">
+                    <label for="floatingInput">Full name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control"   name="email" [(ngModel)]="user.email">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control"   name="role" [(ngModel)]="user.role">
+                  <label for="floatingInput">role</label>
+              </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control"   name="password" [(ngModel)]="user.password" onchange="onPasswordChange()" >
+                    <label for="floatingPassword">Password</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control"   name="Activation" [(ngModel)]="user.active">
+                    <label for="floatingPassword">Activation</label>
+                  </div>
+                  
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control"   name="num_tel" [(ngModel)]="user.num_tel">
+                    <label for="floatingPassword">numero de telephone</label>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control"   name="localisation" [(ngModel)]="user.localisation">
+                    <label for="floatingPassword">localisation</label>
+                  </div>
+                 
+
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-outline-success me-md-2" type="submit"  >Update</button>
+                  </div>
+
+                  
+            </form>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+</div>

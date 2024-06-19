@@ -1,0 +1,509 @@
+
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+<hr>
+<hr>
+<hr>
+<hr>
+
+
+
+
+
+
+
+
+<!-- multistep form -->
+<form id="msform" [formGroup]="signupForm" (ngSubmit)="signup()">
+  
+  <!-- fieldsets -->
+  <fieldset id="fieldset1">
+    <h2 class="fs-title">Create training Center account</h2>
+    <h3 class="fs-subtitle">This is step 1</h3>
+    <input type="text" class="form-control" formControlName="username" placeholder="Username" name="username">
+    
+
+    <div *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.invalid">
+      <div *ngIf="signupForm.get('username')?.hasError('required')">
+        <b style="color: red;"> <i>Username is required.</i></b>
+      </div>
+      <div *ngIf="signupForm.get('username')?.hasError('pattern')">
+        <b style="color: red;">Username must be a string.</b>
+      </div>
+    </div>
+
+    <input class="form-control valid" id="email" type="email" formControlName="email" placeholder="email" name="email">
+   
+
+    <div *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid">
+      <div *ngIf="signupForm.get('email')?.hasError('required')">
+        <b style="color: red;"> <i>Username is required.</i></b>
+      </div>
+      <div *ngIf="signupForm.get('email')?.hasError('email')">
+        <b style="color: red;">input must be an email.</b>
+      </div>
+    </div>
+    
+   
+
+
+    <button type="button" name="next" class="next action-button" value="Next"  (click)="next()" [disabled]="signupForm.get('username')?.invalid || signupForm.get('email')?.invalid" >Next</button>
+
+
+  </fieldset>
+  <fieldset id="fieldset2">
+   <h2 class="fs-title">Create your account</h2>
+    <h3 class="fs-subtitle">This is step 2</h3>
+    
+    <input type="password" class="form-control" formControlName="password" placeholder="Password" name="password">
+    
+
+    <div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid">
+      <div *ngIf="signupForm.get('password')?.hasError('required')">
+        <b style="color: red;"> <i>password is required.</i></b>
+      </div>
+      <div *ngIf="signupForm.get('password')?.hasError('pattern')">
+        <b style="color: red;">input must be a password.</b>
+      </div>
+    </div>
+
+
+
+
+
+    <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password" name="confirmPassword">
+    
+  
+    <div *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.invalid">
+      <div *ngIf="signupForm.get('confirmPassword')?.hasError('required')">
+        <b style="color: red;"> <i>Confirm password is required.</i></b>
+      </div>
+      <div *ngIf="signupForm.get('confirmPassword')?.hasError('passwordMismatch')">
+        <b style="color: red;">Passwords do not match.</b>
+      </div>
+    </div>
+
+
+
+
+
+    <button type="button" name="previous" class="previous action-button" value="Previous" (click)="previous()"  >Previous</button>
+    <button type="button" name="next" class="next action-button" value="Next" (click)="next2()" [disabled]="signupForm.get('password')?.invalid || signupForm.get('confirmPassword')?.invalid" >Next</button>
+
+
+
+  </fieldset>
+  <fieldset id="fieldset3">
+    <h2 class="fs-title">Personal Details</h2>
+    <h3 class="fs-subtitle">We will never sell it</h3>
+
+
+    <div class="form-group">
+      <img [src]="imgURL" style="display:block; width: 100%;
+      height: 100%; border-radius: 50%;" height="200" *ngIf="imgURL">
+      <input style="color:orange ;" type="file" accept="image/*" (change)="onSelectFile($event)">
+      
+  </div>
+
+
+    <input type="text" class="form-control" formControlName="localisation" placeholder="Localisation" name="localisation">
+    
+
+    <div *ngIf="signupForm.get('localisation')?.touched && signupForm.get('localisation')?.invalid">
+      <div *ngIf="signupForm.get('localisation')?.hasError('required')">
+        <b style="color: red;"> <i>localisation is required.</i></b>
+      </div>
+      <div *ngIf="signupForm.get('localisation')?.hasError('pattern')">
+        <b style="color: red;">localisation must be a string.</b>
+      </div>
+    </div>
+
+
+
+
+    <input class="form-control valid" id="" type="num_tel" formControlName="num_tel" placeholder="num_tel" name="num_tel">
+    
+
+    <div *ngIf="signupForm.get('num_tel')?.touched && signupForm.get('num_tel')?.invalid">
+      <div *ngIf="signupForm.get('num_tel')?.hasError('required')">
+        <b style="color: red;"> <i>Username is required.</i></b>
+      </div>
+      <div *ngIf="signupForm.get('num_tel')?.hasError('pattern')">
+        <b style="color: red;">input must be an phone.</b>
+      </div>
+    </div>
+
+       
+    
+    <div class="form-group">
+      <label>description</label>
+      
+      <textarea id="description" class="form-control" rows="4" 
+     formControlName="description" 
+      name="description" required></textarea>
+      <div *ngIf="signupForm.get('description')?.invalid && (signupForm.get('description')?.dirty || signupForm.get('description')?.touched)">
+        <div *ngIf="signupForm.get('description')?.errors?.['required']">
+         <b style="color: red;"> <i>description is required.</i></b>
+        </div>
+        
+      </div>
+
+
+      
+    </div>
+
+   
+
+
+
+    <button type="button" name="previous" class="previous action-button" value="Previous" (click)="previous2()"  >Previous</button>
+    <button class="submit action-button" target="_top" type="submit" [disabled]="this.signupForm.invalid " >Submit</button>
+  </fieldset>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="../../../assets/login.webp" height="100%" width="100%">
+        </div>
+        <div class="col-md-4 mt-3 mb-2">
+            <h3 class="text-success text-center"><b>Espace Admin  </b></h3>
+
+            <form [formGroup]="signupForm" (ngSubmit)="signup()" class="mt-5 p-5">
+               
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" formControlName="username" placeholder="Username" name="username">
+                  <label for="floatingInput">Full name</label>
+
+                  <div *ngIf="signupForm.get('username')?.errors">
+                    <div *ngIf="signupForm.get('username')?.hasError('required')">
+                      <b style="color: red;"> <i>Username is required.</i></b>
+                    </div>
+                    <div *ngIf="signupForm.get('username')?.hasError('pattern')">
+                      <b style="color: red;">Username must be a string.</b>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" formControlName="localisation" placeholder="Localisation" name="localisation">
+                  <label for="floatingInput">localisation</label>
+
+                  <div *ngIf="signupForm.get('localisation')?.errors">
+                    <div *ngIf="signupForm.get('localisation')?.hasError('required')">
+                      <b style="color: red;"> <i>localisation is required.</i></b>
+                    </div>
+                    <div *ngIf="signupForm.get('localisation')?.hasError('pattern')">
+                      <b style="color: red;">localisation must be a string.</b>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="form-floating mb-3">
+                    <input class="form-control valid" id="" type="num_tel" formControlName="num_tel" placeholder="num_tel" name="num_tel">
+                    <label for="floatingInput">numero de telephone</label>
+  
+                    <div *ngIf="signupForm.get('num_tel')?.errors">
+                      <div *ngIf="signupForm.get('num_tel')?.hasError('required')">
+                        <b style="color: red;"> <i>Username is required.</i></b>
+                      </div>
+                      <div *ngIf="signupForm.get('num_tel')?.hasError('pattern')">
+                        <b style="color: red;">input must be an phone.</b>
+                      </div>
+                    </div>
+                  </div>
+
+                <div class="form-floating mb-3">
+                  <input class="form-control valid" id="email" type="email" formControlName="email" placeholder="email" name="email">
+                  <label for="floatingInput">Email address</label>
+
+                  <div *ngIf="signupForm.get('email')?.errors">
+                    <div *ngIf="signupForm.get('email')?.hasError('required')">
+                      <b style="color: red;"> <i>Username is required.</i></b>
+                    </div>
+                    <div *ngIf="signupForm.get('email')?.hasError('email')">
+                      <b style="color: red;">input must be an email.</b>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="password" class="form-control" formControlName="password" placeholder="Password" name="password">
+                  <label for="floatingPassword">Password</label>
+
+                  <div *ngIf="signupForm.get('password')?.errors">
+                    <div *ngIf="signupForm.get('password')?.hasError('required')">
+                      <b style="color: red;"> <i>password is required.</i></b>
+                    </div>
+                    <div *ngIf="signupForm.get('password')?.hasError('pattern')">
+                      <b style="color: red;">input must be a password.</b>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-floating mb-3">
+  <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password" name="confirmPassword">
+  <label for="floatingConfirmPassword">Confirm Password</label>
+
+  <div *ngIf="signupForm.get('confirmPassword')?.errors">
+    <div *ngIf="signupForm.get('confirmPassword')?.hasError('required')">
+      <b style="color: red;"> <i>Confirm password is required.</i></b>
+    </div>
+    <div *ngIf="signupForm.get('confirmPassword')?.hasError('passwordMismatch')">
+      <b style="color: red;">Passwords do not match.</b>
+    </div>
+  </div>
+
+</div>
+
+           
+      <div class="form-group">
+        <label>File Upload  </label>
+            <input type="file" accept="image/*" (change)="onSelectFile($event)">
+            <img [src]="imgURL" height="200" *ngIf="imgURL">
+    </div>
+               
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-outline-success me-md-2" type="submit" [disabled]="this.signupForm.invalid "   >Register</button>
+                  </div>
+
+                  <a routerLink="/login" class="text-primary" style="text-decoration: none;">Log In ? </a>
+            </form>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+</div>-->
+
+

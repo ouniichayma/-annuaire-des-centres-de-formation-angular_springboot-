@@ -1,0 +1,139 @@
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+<div >
+	<h1 style="text-align: center; color:rgb(255, 145, 0);font-family: system-ui;">👋 subcategory list!</h1>
+
+	
+</div>
+<br>
+<br>
+
+
+<ul class="cards"  *ngIf="listData | async as categorie">
+  <li class="card"*ngFor="let item of categorie | paginate: { itemsPerPage: 3, currentPage: p }">
+    <div >
+      
+      <h2>{{item.libelle}}</h2>
+      <div class="card__buttons">
+        <button (click) = "selectData(item)">✍ modification</button>
+        <button (click) = "removeData(item.id)">⛔ deletion</button>
+      </div>
+    </div>
+    <h3 class="card__tagline">You can make modifications or deletions</h3>
+    <ul class="card__icons">
+      <li><i class="fa fa-coffee">  {{item.code}}</i></li>
+      <li><i class="fa fa-coffee"> id  {{item.id}}</i></li>
+      <li><i class="fa fa-coffee"> id categorie {{item.num_cat}}</i></li>
+    </ul>
+    
+  </li>
+ <br>
+ <hr>
+  <pagination-controls (pageChange)="p = $event"  ></pagination-controls>
+  
+</ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!--<div>
+        Liste Catégorie
+      </div>
+    
+    
+   
+   <div class="pricing-header mx-auto">
+     <div class="table-responsive">
+      <table class="table table-bordered table-responsive-sm table-responsive-md
+     table-responsive-lg">
+      <thead>
+      <tr>
+      <th scope="col">Code Scategorie</th>
+      <th scope="col">Code categorie</th>
+      <th scope="col">Libelle </th>
+      <th class="text-center" scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+  
+  
+      <tr *ngFor="let item of listData |async">
+      <th class ="hidden">{{item.id}}</th>
+      <td>{{item.code}}</td>
+      <td>{{item.id_cat}}</td>
+      <td>{{item.libelle}}</td>
+      
+     
+      <td><button class="btn btn-warning"  (click) = "selectData(item)">
+        <i class="fa fa-pencil-square-o" ></i></button></td>
+     <td><button class="btn btn-danger" (click) = "removeData(item.id)">
+        <i class="fa fa-trash-o"></i></button></td>
+         </tr>
+           </tbody>
+           </table>
+           </div>
+         </div>-->
+  

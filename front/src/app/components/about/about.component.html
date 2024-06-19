@@ -1,0 +1,108 @@
+<!--*********************************************************** 
+************************ ABOUT US(au) ************************
+***************************************************************-->
+
+
+<section class="s1">
+<section class="au-common-section" id="about-us">
+  <div class="row">
+    
+    <div class="col-lg-6 col-md-6">
+      
+      <h2 class="au-h2">ABOUT US</h2>
+      <p class="au-section-description">
+		search engine and a directory dedicated to initial training, professional and continuing training in Tunisia. It is a rich, simple and effective research tool made available to companies, employees and students looking for training and further training.
+		we offer you a multitude of web solutions guaranteeing optimal visibility for your organization and training. You can register your organization, reference your training courses and use our various advertising spaces.
+      </p>
+      
+    </div>
+    
+    <div class="col-lg-6 col-md-6">
+      <img class="aboutus-photo" src="https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=100&w=100">
+    </div>
+    
+  </div> 
+</section>
+
+
+
+
+
+
+
+
+<section class="au-common-section" id="vis-mis"> 
+  
+	<div class="row">
+	  
+	  <div class="col-lg-12">
+		
+		<h2 class="au-h2">meet our team</h2>
+		<p class="au-section-description">
+			Several training centers (vocational training centers, institutes and offices in Tunisia) are approved by the State and offer diplomas approved by the Tunisian Ministry of Vocational Training and Employment. find the list of private vocational training centers in Tunisia
+		</p>
+		
+	  </div>
+	  
+	</div>
+	
+  </section>
+
+<div class="container">
+	<div class="row"*ngIf="listData | async as users">
+	  <div class="col-12 col-sm-6 col-md-4 col-lg-3"*ngFor="let item of users| paginate: { itemsPerPage: 4, currentPage: p }" >
+		<div class="our-team"  >
+		  <div class="picture">
+			<img class="img-fluid"  src="{{ this.authService.host+'/auth/Imgarticles/'+item.id }}">
+		  </div>
+		  <div class="team-content">
+			<h3 class="name">{{item.username}}</h3>
+			<h4 class="title">{{item.localisation}}</h4>
+		  </div>
+		  <ul class="social">
+			<div class="button home_button" type="submit" (click)="centredetails(item.id)"><a routerLink="about">learn more<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>
+		  </ul>
+		</div>
+	  </div>
+	  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+	
+	</div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+<section class="au-common-section" id="vis-mis"> 
+  
+  <div class="row">
+    
+    <div class="col-lg-12">
+      
+      <h2 class="au-h2">VISION & MISSION</h2>
+      <p class="au-section-description">
+		273 / 5 000
+		Résultats de traduction
+		Résultat de traduction
+		Initial training in Tunisia: Diplomate Training: BTS, BTP, CAP, Professional Licenses, Professional Masters, Professional Engineers ....
+		Continuing education in Tunisia, and accelerated training
+		Reform of the national vocational training system
+      </p>
+      
+    </div>
+    
+  </div>
+  
+</section>
+
+
+
+
+
+
+</section>

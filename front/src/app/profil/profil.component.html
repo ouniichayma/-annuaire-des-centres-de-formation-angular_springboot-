@@ -1,0 +1,158 @@
+<section style="background-color: #eee;">
+    <div class="container py-5">
+        <div class="row">
+            <h3  style="color:rgb(62, 145, 253);text-align: center; "><b>Update profil </b></h3>
+        </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+             
+              <img src = "{{this.service.host+'/auth/Imgarticles/'+user['id']}}"  alt="avatar"
+                class="rounded-circle img-fluid" style="width: 150px;">
+              <h5 class="my-3">{{user.username}}</h5>
+              <p class="text-muted mb-1">{{user.localisation}}</p>
+              <p class="text-muted mb-1">{{user.email}}</p>
+             
+            
+            </div>
+          </div>
+         
+        </div>
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-body">
+              <form (ngSubmit)="update()" class="mt-5 p-5">
+              <div class="row">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="floatingInput" readonly placeholder="Username" name="username" [(ngModel)]="user.username">
+                  <label for="floatingInput">Full name</label>
+              </div>
+              </div>
+              <hr style="color:rgb(62, 145, 253);border: solid;">
+              <div class="row">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="email" name="email" [(ngModel)]="user.email">
+                  <label for="floatingInput">Email address</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control"   name="num_tel" [(ngModel)]="user.num_tel">
+                <label for="floatingPassword">numero de telephone</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control"   name="localisation" [(ngModel)]="user.localisation">
+                <label for="floatingPassword">localisation</label>
+              </div>
+             
+              
+              </div>
+              <hr style="color:rgb(62, 145, 253);border: solid;">
+              <div class="row">
+                <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="floatingPassword"  placeholder="Password" name="password" [(ngModel)]="user.password" onchange="onPasswordChange()">
+                  <label for="floatingPassword">Password</label>
+                </div>
+              </div>
+
+            
+
+              
+
+              <hr style="color:rgb(62, 145, 253);border: solid;">
+              
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-outline-success me-md-2" type="submit"  >Update</button>
+              </div>
+             
+            </form>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="container-fluid">
+    <div class="row">
+       
+        <div class="col-md-4 mt-3 mb-2">
+            <h3 class="text-success text-center"><b>Update profil </b></h3>
+
+            <form (ngSubmit)="update()" class="mt-5 p-5">
+                
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username" [(ngModel)]="user.username">
+                    <label for="floatingInput">Full name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="email" name="email" [(ngModel)]="user.email">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" [(ngModel)]="user.password">
+                    <label for="floatingPassword">Password</label>
+                  </div>
+                  
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-outline-success me-md-2" type="submit"  >Update</button>
+                    
+                  </div>
+
+                  
+            </form>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+</div>-->
+

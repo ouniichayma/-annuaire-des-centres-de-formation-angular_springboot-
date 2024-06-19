@@ -1,0 +1,206 @@
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+
+
+
+
+
+
+
+  <div class="row"class="no-js" lang="en" dir="ltr">
+    <div class="small-12 columns">
+      <div class="info-slider spline">
+        
+        <input id="info-slide-1" type="radio" name="slider" checked>
+        <div class="slide">
+          <div class="slide-inner">
+            <div class="row">
+              <div class="large-6 columns">
+                <span class="question bold">Trainer</span>
+                <p><span class="bold"></span> 
+                  As a trainer, present your resume and experience for free to be contacted by training organizations based on your skills.                               
+                </p>
+              </div>
+             
+            </div>
+          </div>
+          <label class="prev-slide" for="info-slide-2"><i class="fa fa-chevron-left"></i></label>
+          <label class="next-slide" for="info-slide-2"><i class="fa fa-chevron-right"></i></label>
+        </div>
+
+        <input id="info-slide-2" type="radio" name="slider">
+        <div class="slide">
+          <div class="slide-inner">
+            <div class="row">
+              <div class="large-6 columns">
+                <span class="question bold">training</span>
+                <p> Are you looking to improve your skills? Are you searching for training opportunities? With Wehub, discover the seminars and courses that meet your expectations. If you don't find the training you're looking for, you can suggest it.
+                </p>
+              </div>
+             
+            </div>
+          </div>
+          <label class="prev-slide" for="info-slide-1"><i class="fa fa-chevron-left"></i></label>
+          <label class="next-slide" for="info-slide-1"><i class="fa fa-chevron-right"></i></label>
+        </div>
+
+       
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="row">
+    <div class="col-md-6">
+
+
+
+<form [formGroup]="demandeForm" (ngSubmit)="onSubmit()" >
+  <label for="email">suggest a training</label>
+    <div class="form-group">
+        
+        <input type="text" class="form-control" placeholder="libelle" formControlName="libelle" id="libelle">
+
+        <div *ngIf="demandeForm.get('libelle')?.invalid && (demandeForm.get('libelle')?.dirty || demandeForm.get('libelle')?.touched)">
+          <div *ngIf="demandeForm.get('libelle')?.errors?.['required']">
+           <b style="color: red;"> <i>libelle is required.</i></b>
+          </div>
+          <div *ngIf="demandeForm.get('libelle')?.errors?.['pattern']">
+            <b style="color: red;"> libelle must be a string.</b>
+          </div>
+        </div>
+
+
+        
+      </div>
+      <div class="form-group">
+        
+        <input type="text" class="form-control"  placeholder="{{client?.username}}" formControlName="username" id="username">
+
+        <div *ngIf="demandeForm.get('username')?.invalid && (demandeForm.get('username')?.dirty || demandeForm.get('username')?.touched)">
+          <div *ngIf="demandeForm.get('username')?.errors?.['required']">
+           <b style="color: red;"> <i>Code is required.</i></b>
+          </div>
+          <div *ngIf="demandeForm.get('username')?.errors?.['pattern']">
+            <b style="color: red;"> Code must be a string.</b>
+          </div>
+        </div>
+
+
+        
+      </div>
+    <div class="form-group">
+     
+      <textarea class="form-control" placeholder="description" formControlName="description" required></textarea>
+    </div>
+    <div class="form-group">
+      
+      <input type="text" class="form-control" placeholder="ville" formControlName="local" required>
+    </div>
+    <input type="submit" value="send"  name="subscribe"  >
+  </form>
+  
+
+
+
+
+
+
+
+
+</div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="col-md-6">
+        
+        <form (ngSubmit)="onSubmitcandidat()">
+          <label for="email">present your resume</label>
+          
+          <div class="form-group">
+           
+            <input type="text" placeholder="username" class="form-control" id="nom" [(ngModel)]="candidate.nom" name="nom" required>
+          </div>
+          <div class="form-group">
+          
+            <input type="text" placeholder="lastname" class="form-control" id="prenom" [(ngModel)]="candidate.prenom" name="prenom" required>
+          </div>
+          <div class="form-group">
+           
+            <input type="text" placeholder="secteur" class="form-control" id="secteur" [(ngModel)]="candidate.secteur" name="secteur" required>
+          </div>
+          <div class="form-group">
+          <h2 style="color:rgb(255, 255, 255) ;">cv file</h2>
+            <input type="file" placeholder="cv" class="form-control-file" id="cv" (change)="onFileChange($event, 'cv')" name="cv" required>
+          </div>
+          <div class="form-group">
+            <h2 style="color:rgb(255, 255, 255) ;">image file</h2>
+            <input type="file" placeholder="cv" class="form-control-file" id="photo" (change)="onFileChange($event, 'photo')" name="photo">
+          </div>
+          
+          <input type="submit" value="send"  name="subscribe"  >
+          </form>
+
+
+
+        </div>
+      </div>
+ 

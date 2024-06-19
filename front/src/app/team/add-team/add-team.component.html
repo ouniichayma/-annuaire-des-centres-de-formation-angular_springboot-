@@ -1,0 +1,327 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 style="text-align: center; color:rgb(255, 145, 0);font-family: system-ui;">👋 add training!</h1>
+
+
+<div class="col-md-12 col-md-offset-2">
+      
+    <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+      <input type="hidden"  formControlName="id" id="id">
+    
+
+ 
+
+
+
+
+      <div class="form-group">
+      
+
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+
+       
+        
+
+            <label>Code </label>
+            <input type="text" class="form-control" formControlName="code" id="code" >
+            
+          </div>
+    
+    
+          
+          <div class="form-group">
+            <label>nom</label>
+            <input type="text" class="form-control" formControlName="nom" id="nom">
+
+            <div *ngIf="crudApi.dataForm.get('nom')?.invalid && (crudApi.dataForm.get('nom')?.dirty || crudApi.dataForm.get('nom')?.touched)">
+              <div *ngIf="crudApi.dataForm.get('nom')?.errors?.['required']">
+               <b style="color: red;"> <i>Code is required.</i></b>
+              </div>
+              <div *ngIf="crudApi.dataForm.get('nom')?.errors?.['pattern']">
+                <b style="color: red;"> Code must be a string.</b>
+              </div>
+            </div>
+    
+    
+            
+          </div>
+    
+
+
+
+
+
+
+
+          <div class="form-group">
+            <label>prenom</label>
+            <input type="text" class="form-control" formControlName="prenom" id="prenom">
+
+            <div *ngIf="crudApi.dataForm.get('prenom')?.invalid && (crudApi.dataForm.get('prenom')?.dirty || crudApi.dataForm.get('prenom')?.touched)">
+              <div *ngIf="crudApi.dataForm.get('prenom')?.errors?.['required']">
+               <b style="color: red;"> <i>Code is required.</i></b>
+              </div>
+              <div *ngIf="crudApi.dataForm.get('prenom')?.errors?.['pattern']">
+                <b style="color: red;"> Code must be a string.</b>
+              </div>
+            </div>
+    
+    
+            
+          </div>
+
+
+
+          <div class="form-group">
+            <label>centre de formation</label>
+            <input type="text" class="form-control" formControlName="username" id="username">
+
+            <div *ngIf="crudApi.dataForm.get('username')?.invalid && (crudApi.dataForm.get('username')?.dirty || crudApi.dataForm.get('username')?.touched)">
+              <div *ngIf="crudApi.dataForm.get('username')?.errors?.['required']">
+               <b style="color: red;"> <i>Code is required.</i></b>
+              </div>
+              <div *ngIf="crudApi.dataForm.get('username')?.errors?.['pattern']">
+                <b style="color: red;"> Code must be a string.</b>
+              </div>
+            </div>
+    
+    
+            
+          </div>
+
+
+    
+    
+       
+    
+    
+    
+    
+
+
+
+
+
+
+
+          </div>
+
+
+    
+    
+    
+    
+    
+    
+    
+
+
+
+      <div class="form-group">
+        <label>localisation</label>
+        <input type="text" class="form-control" formControlName="local" id="local">
+        
+      </div>
+
+      <div class="form-group">
+        <label>role</label>
+        <input type="text" class="form-control" formControlName="role" id="role">
+        
+      </div>
+
+
+
+      <div class="form-group">
+        <label>File Upload  </label>
+            <input type="file" accept="image/*" (change)="onSelectFile($event)">
+            <img [src]="imgURL" height="200" *ngIf="imgURL">
+    </div>
+
+
+      <div class="form-group">
+    
+        <button type="submit" class="btn btn-dark"[disabled]="this.crudApi.dataForm.invalid" ><i class="fa fa-database"></i> Submit</button>
+        
+    
+
+</div>
+    </form>
+</div>

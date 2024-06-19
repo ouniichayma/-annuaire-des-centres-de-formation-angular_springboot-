@@ -1,0 +1,111 @@
+	<!-- Courses -->
+
+	<div class="courses">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1">
+					<div class="section_title text-center"><h2>search your course</h2></div>
+					<div class="section_subtitle">Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis in. Aenean id varius quam. Nullam bibendum interdum dui, ac tempor lorem convallis ut</div>
+				</div>
+			</div>
+
+			<!-- Course Search -->
+
+			
+			<div class="row">
+				<div class="col">
+					<div class="course_search">
+						<form  [formGroup]="searchForm" (ngSubmit)="onSearch()" action="#" class="course_search_form d-flex flex-md-row flex-column align-items-start justify-content-between">
+							<div><input type="text" class="course_input" formControlName="libelle" placeholder="training name" required="required"></div>
+							<div><input type="text" class="course_input" formControlName="local" placeholder="localisation" required="required"></div>
+							<div><input type="text" class="course_input" formControlName="username" placeholder="training center" required="required"></div>
+							<button  type="submit" class="course_button"><span>search course</span><span class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		
+
+			<br>
+			<br>
+
+			<div class="row courses_row" *ngIf="formations$ | async as formations">
+				<div class="col-lg-4 col-md-6" *ngFor="let item of formations">
+					<div class="course">
+						<div class="course_image"><img  src = "{{this.crudApi.host+'/api/Imgarticles/'+item.id}}" 
+                            style = "height :200px;width:fil-content"alt=""></div>
+						<div class="course_body">
+							<div class="course_header d-flex flex-row align-items-center justify-content-start">
+							
+								<div class="course_price ml-auto">Price: <span>{{item.pa}}</span></div>
+							</div>
+							<div class="course_title"><h3><a href="courses.html"> {{item.libelle}}</a></h3></div>
+							<div class="course_text">{{item.description}}</div>
+							<div class="course_footer d-flex align-items-center justify-content-start">
+								
+								<div class="course_author_name">By <a href="#">{{item.username}}</a></div>
+								<div class="course_sales ml-auto"><span>{{item.place}}</span> place disponnible</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			  </div>
+			  <div *ngIf="(formations$ | async)?.length === 0">
+				<p>No results found.</p>
+			  </div>
+			
+
+	     	<br>
+          <br>
+			<div class="row courses_row"*ngIf="listData | async as formations" >
+				
+				<!-- Course -->
+				<div class="col-lg-4 col-md-6"*ngFor="let item of formations | paginate: { itemsPerPage: 3, currentPage: p }">
+					<div class="course">
+						<div class="course_image"><img  src = "{{this.crudApi.host+'/api/Imgarticles/'+item.id}}" 
+                            style = "height :200px;width:fil-content"alt=""></div>
+						<div class="course_body">
+							<div class="course_header d-flex flex-row align-items-center justify-content-start">
+							
+								<div class="course_price ml-auto">Price: <span>{{item.pa}}</span></div>
+							</div>
+							<div class="course_title"><h3><a > {{item.libelle}}</a></h3></div>
+							<div class="course_text">{{item.description}}</div>
+							<div class="course_footer d-flex align-items-center justify-content-start">
+								
+								<div class="course_author_name">By <a href="#">{{item.username}}</a></div>
+								<div class="course_sales ml-auto"><span>{{item.place}}</span> place disponnible</div>
+								<div class="course_sales ml-auto"><span>{{item.local}}</span> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+                   
+                     
+                 
+                </div>
+				
+                <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+			
+
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+	
+		</div>
+	</div>
+
+
+	
+	

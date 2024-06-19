@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    min-height: 100%;
+  }
+  
+  body {
+    font-family: "Press Start 2P", monospace;
+    font-size: 16px;
+    background-color: rgb(95, 95, 95);
+    background-image: url("http://damonbauer.me/assets/images/trees.png");
+    background-position: bottom;
+    background-repeat: repeat-x;
+    background-size: 100% auto;
+  }
+  @media screen and (min-width: 30em) {
+    body {
+      background-size: 60% auto;
+    }
+  }
+  
+  form {
+    margin: 2em auto;
+    max-width: 40em;
+    border: 8px solid #808080;
+    border-radius: 25px;
+    padding: 3em 2em;
+    background: #474747;
+    box-shadow: 5px 5px rgba(33, 25, 40, 0.25);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 1em;
+    color: #FF940D;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    text-align: center;
+    text-shadow: 3px 3px #E8490C;
+  }
+  @media screen and (min-width: 30em) {
+    label {
+      font-size: 1.75rem;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+  select {
+    border: 0;
+    padding: 1em 0.5em;
+    margin: 0 0 2em;
+    width: 100%;
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    border-radius: 2px;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
+  }
+  @media screen and (min-width: 30em) {
+    select {
+      font-size: 1rem;
+    }
+  }
+  select:focus {
+    outline: 0;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  input {
+    border: 0;
+    padding: 1em 0.5em;
+    margin: 0 0 2em;
+    width: 100%;
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    border-radius: 2px;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
+  }
+  @media screen and (min-width: 30em) {
+    input {
+      font-size: 1rem;
+    }
+  }
+  input:focus {
+    outline: 0;
+  }
+  
+  input[type=submit] {
+    position: relative;
+    width: 100%;
+    padding: 1em 0;
+    border: 0;
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    background-color: #FF940D;
+    color: #4f4e50;
+    box-shadow: 3px 3px #E8490C;
+    border-radius: 2px;
+    transition: box-shadow ease 0.1s, top ease 0.2s, left ease 0.2s, background-color ease 0.2s;
+  }
+  @media screen and (min-width: 30em) {
+    input[type=submit] {
+      font-size: 1rem;
+    }
+  }
+  input[type=submit]:focus {
+    outline: 0;
+  }
+  input[type=submit]:active {
+    top: 1px;
+    left: 1px;
+    box-shadow: 0 0 transparent;
+    background-color: #E8490C;
+  }

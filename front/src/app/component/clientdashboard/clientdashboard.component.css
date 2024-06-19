@@ -1,0 +1,205 @@
+.info-slider {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+   
+  }
+  
+  /* hides your radio button */
+    .info-slider input {
+      visibility: hidden; 
+  }
+  
+  /* 
+  the transition is triggered when the radio button is 
+  checked. In order to make this happen you added the 
+  :checked attribute to your input */
+    .info-slider input[type="radio"]:checked + .slide {
+      z-index: 100;
+      left: 0;
+      transition: left 0.65s ease-out; 
+      /* this is what makes your slide look like it's sliding */
+  }
+  
+    .info-slider .slide {
+      background-color: rgb(255, 185, 106);
+      border: 1px solid #ff6f59;
+      border-radius: 10px;
+      height: 200px;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      z-index: 10;
+      transition: left 0s 0.75s; 
+      /* this ensures that your current slide doesn't move until the next slide is transitioning */
+  }
+  
+      .info-slider .slide .slide-inner {
+        width: 75%;
+        margin: 0 auto;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        left: 0; 
+  }
+  
+    .info-slider label {
+      cursor: pointer;
+      position: absolute;
+      top: 135px; 
+  }
+  
+      .info-slider label i {
+        color: #e67700;
+        font-size: 2rem;
+        transition: color 0.3s ease; 
+  }
+  
+    .info-slider label:hover i {
+      color: #d63043; 
+  }
+  
+    .info-slider .prev-slide {
+      left: 40px; 
+  }
+  
+    .info-slider .next-slide {
+      right: 40px; 
+  }
+  
+  
+  /* Typography Styles */
+  .info-slider .section-heading {
+      position: relative;
+      z-index: 105;
+      font-weight: bold;
+      padding-top: 1rem;
+      color: #d63043;
+      text-transform: uppercase;
+  }
+  
+      .info-slider .slide .bold {
+        font-weight: bold;
+        color: #363537; 
+  }
+  
+      .info-slider .slide .question {
+        display: block;
+        font-size: 1.125rem;
+        margin-bottom: 1rem; 
+  }
+  
+      .info-slider .slide p {
+        font-size: 0.813rem; 
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    min-height: 100%;
+  }
+  
+  body {
+    font-family: "Press Start 2P", monospace;
+    font-size: 16px;
+    background-color: rebeccapurple;
+    background-image: url("http://damonbauer.me/assets/images/trees.png");
+    background-position: bottom;
+    background-repeat: repeat-x;
+    background-size: 100% auto;
+  }
+  @media screen and (min-width: 30em) {
+    body {
+      background-size: 60% auto;
+    }
+  }
+  
+  form {
+    margin: 2em auto;
+    max-width: 40em;
+    border: 8px solid #AA55FF;
+    border-radius: 25px;
+    padding: 3em 2em;
+    background: #3A2D47;
+    box-shadow: 5px 5px rgba(33, 25, 40, 0.25);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 1em;
+    color: #FF940D;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    text-align: center;
+    text-shadow: 3px 3px #E8490C;
+  }
+  @media screen and (min-width: 30em) {
+    label {
+      font-size: 1.75rem;
+    }
+  }
+  
+  input[type=email] {
+    border: 0;
+    padding: 1em 0.5em;
+    margin: 0 0 2em;
+    width: 100%;
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    border-radius: 2px;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
+  }
+  @media screen and (min-width: 30em) {
+    input[type=email] {
+      font-size: 1rem;
+    }
+  }
+  input[type=email]:focus {
+    outline: 0;
+  }
+  
+  input[type=submit] {
+    position: relative;
+    width: 100%;
+    padding: 1em 0;
+    border: 0;
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    background-color: #FF940D;
+    color: #3A2D47;
+    box-shadow: 3px 3px #E8490C;
+    border-radius: 2px;
+    transition: box-shadow ease 0.1s, top ease 0.2s, left ease 0.2s, background-color ease 0.2s;
+  }
+  @media screen and (min-width: 30em) {
+    input[type=submit] {
+      font-size: 1rem;
+    }
+  }
+  input[type=submit]:focus {
+    outline: 0;
+  }
+  input[type=submit]:active {
+    top: 1px;
+    left: 1px;
+    box-shadow: 0 0 transparent;
+    background-color: #E8490C;
+  }
